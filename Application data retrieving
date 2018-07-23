@@ -271,7 +271,7 @@ def updating_applications_data(IDs,Opcos,Countries,service,last_monday,last_sund
             for i_japan in range(len(df)):
                 users.append(df[i_japan][0])
         # specially extracting data of Netherlands from bigquery
-        if profile_id == '59586729':
+        if profile_id == 'AAAA':
             query = '''select count(deviceCategory) as application, deviceCategory, actiontimestamp
                         from (
                         SELECT
@@ -348,7 +348,7 @@ def updating_applications_data(IDs,Opcos,Countries,service,last_monday,last_sund
             for i_japan in range(len(df)):
                 users.append(df[i_japan][0])
         # specially extracting data of Germany from bigquery
-        if profile_id == '125109878':
+        if profile_id == 'AAAA':
             query = '''select count(deviceCategory) as application, deviceCategory, actiontimestamp
                         from (
                         SELECT
@@ -488,6 +488,6 @@ def updating_applications_data(IDs,Opcos,Countries,service,last_monday,last_sund
         print(Opco_new[i],eventType_new[i],deviceType_new[i],date_new[i],eventNumber_new[i])
     df={'Date':date_new,'profileId':profileId_new,'Opco':Opco_new,'Country':country_new,'deviceType':deviceType_new,'eventType':eventType_new,'eventNumber':eventNumber_new,'eventType_general':eventType_general,'users':users_new}
     df = pd.DataFrame(df)
-    pd.io.gbq.to_gbq(df, 'Global_Dashboard_Yue.Applications_data', 'global-dashboard-146013',
+    pd.io.gbq.to_gbq(df, 'AAAA', 'AAAA',
                      if_exists='replace',
                      private_key=bigquery_key)
