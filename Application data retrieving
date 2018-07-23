@@ -73,8 +73,8 @@ def updating_applications_data(IDs,Opcos,Countries,service,last_monday,last_sund
                             dimensions='ga:deviceCategory',
                             metrics=Metrics_br[ms],
                             max_results='10000',
-                            segment='sessions::sequence::ga:source==randstad.com.br->>ga:pagePath=@InviteAcceptedFeedback',
-                            filters='ga:source==randstad.com.br;ga:pagePath=@InviteAcceptedFeedback'
+                            segment='sessions::sequence::ga:source==aa.com.br->>ga:pagePath=@aaFeedback',
+                            filters='ga:source==aa.com.br;ga:pagePath=@aaFeedback'
                         ).execute()
                     # specially for Norway
                     elif profile_id == 'AAAA':
@@ -85,8 +85,8 @@ def updating_applications_data(IDs,Opcos,Countries,service,last_monday,last_sund
                             dimensions='ga:deviceCategory',
                             metrics=Metrics_br[ms],
                             max_results='10000',
-                            segment='sessions::condition::ga:pagePath=@takk-for-soknaden',
-                            filters='ga:pagePath=@takk-for-soknaden'
+                            segment='sessions::condition::ga:pagePath=@aa-soknaden',
+                            filters='ga:pagePath=@aa-soknaden'
                         ).execute()
                     # specially for AR
                     elif profile_id == 'AAAA':
@@ -97,8 +97,8 @@ def updating_applications_data(IDs,Opcos,Countries,service,last_monday,last_sund
                             dimensions='ga:deviceCategory',
                             metrics=Metrics_br[ms],
                             max_results='10000',
-                            segment='sessions::condition::ga:pagePath=@MiRandstad/JobApplicationConfirm',
-                            filters='ga:pagePath=@MiRandstad/JobApplicationConfirm'
+                            segment='sessions::condition::ga:pagePath=@aaa/JobApplicationConfirm',
+                            filters='ga:pagePath=@aaa/JobApplicationConfirm'
                         ).execute()
                     # specially for CZ
                     elif profile_id == 'AAAA':
@@ -430,10 +430,10 @@ def updating_applications_data(IDs,Opcos,Countries,service,last_monday,last_sund
     print(len(country))
     #process event labels of UK for data cleaning
     for i in range(len(eventType)):
-        # if Opco[i] == 'Randstad Italy':
+        # if Opco[i] == 'aa Italy':
         #     eventType[i] = re.sub(r'^.*DJA/[\d]+.*','[H]DJA (Professionals)',eventType[i])
         #     eventType[i] = re.sub(r'^.*DJA/SE[\d]+-SEDE-.*', '[H]DJA (staffing)', eventType[i])
-        if Opco[i] == 'Randstad UK':
+        if Opco[i] == 'aa UK':
             eventType[i] = re.sub(r'^.*DJA.+(non-staffing).*', '[H]DJA (non-staffing)', eventType[i])
             eventType[i] = re.sub(r'^.*DJA.+(staffing).*', '[H]DJA (staffing)', eventType[i])
             eventType[i] = re.sub(r'^.*OJA.*', '[H]OJA', eventType[i])
